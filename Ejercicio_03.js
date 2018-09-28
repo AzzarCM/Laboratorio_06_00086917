@@ -1,4 +1,4 @@
-function tiposDatos(array){
+function tiposDatos(array) {
     var tipos = [];
     contUnd = 0;
     contNull = 0;
@@ -6,9 +6,29 @@ function tiposDatos(array){
     contNum = 0;
     contCadena = 0;
     contSymbol = 0;
-    for(let x of array){
-        tipos.push(typeof(x));
-        switch(typeof(x)){
+    for (let x of array) {
+        tipos.push(typeof (x));
+        if(typeof(x) == "number"){
+            contNum += 1;
+        }else if(typeof(x) == "boolean"){
+            contLogic += 1;
+        }else if(typeof(x) == "string"){
+            contCadena += 1;
+        }else if(typeof(x)== "undefined"){
+            contUnd +=1;
+        }else if(typeof(x) == "null"){
+            contNull += 1;
+        }else if(typeof(x) == "symbol"){
+            contSymbol +=1;
+        }
+    }
+    return console.log(tipos + " booleanos " + contLogic + " numeros " + contNum + " cadenas " + contCadena + " undefineds " + contUnd + " nulls " +
+                        contNull + " symbol " + contSymbol);
+}
+
+
+/*
+      switch(typeof(x)){
             case "number":
                 contNum +=1;
                 console.log("hola");
@@ -31,17 +51,6 @@ function tiposDatos(array){
                 
                 default: console.log("no encontre nada");
         }
-    return console.log(tipos + contNum);
-}
-}
 
-
-function tiposDatos(array){
-    var aux1 = [];
-    for(let x of array){
-       aux1.push(typeof(x));
-    }return aux1;
-}
-
-
+        */
 
